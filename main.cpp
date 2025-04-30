@@ -22,52 +22,50 @@ string ArrayToString(const vector<T>& v)
 }
 
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
 	cout <<  "argc: " << argc << endl;
 	for (int a=0; a<argc; a++)
 		cout << argv[a] << " ";
 	cout << endl;
 	
-    size_t m = 100;
-	if(argc > 1)
-    {
-        istringstream st(argv[1]);
-        st >> m;
-        cout << "use value: "  << m << endl;
-    }
-    else
-        cerr << "use default value: "  << m << endl;
+	size_t m = 100;
+	if(argc > 1){
+        	istringstream st(argv[1]);
+        	st >> m;
+        	cout << "use value: "  << m << endl;
+    	}
+	else
+        	cerr << "use default value: "  << m << endl;
 
-    vector<int> v1(m);
+    	vector<int> v1(m);
 	iota(v1.begin(), v1.end(), -4); // l'ultimo argomento è il valore di partenza
 
-    // cout << "v1: " << endl;
-    // cout << ArrayToString(v1) << endl;
+    	// cout << "v1: " << endl;
+    	// cout << ArrayToString(v1) << endl;
 
 	srand(2);
-    vector<double> v2(m);
+    	vector<double> v2(m);
 	for (size_t i = 0; i < m; i++)
 		v2[i] = rand()/((double)RAND_MAX); // numero compreso in [0, 1]
 
-    // cout << "v2: " << endl;
-    // cout << ArrayToString(v2) << endl;
+    	// cout << "v2: " << endl;
+    	// cout << ArrayToString(v2) << endl;
 
-    vector<int> v3(m, 0);
+    	vector<int> v3(m, 0);
 	for (size_t i = floor(m*0.5)+1; i < m; i++)
 		v3[i] = rand() % 1000;
 
 	copy(v1.begin(), v1.begin()+floor(m*0.5)+1, v3.begin());
     
 	// cout << "v3: " << endl;
-    // cout << ArrayToString(v3) << endl;
+    	// cout << ArrayToString(v3) << endl;
 	
 	vector<int> v4(m);
 	for (int i = m-1; i >=0; i--)
 		v4[m-i-1] = i;
 	
 	//cout << "v4: " << endl;
-    //cout << ArrayToString(v4) << endl;
+    	//cout << ArrayToString(v4) << endl;
 	
 	
 	
@@ -117,7 +115,7 @@ int main(int argc, char *argv[])
     cout << "Bubble Sort - v3: " << time_elapsed_bubble_v3 << endl;
 	
 	
-	double time_elapsed_bubble_v4 = 0.0;
+    double time_elapsed_bubble_v4 = 0.0;
     for(unsigned int t = 0; t < num_experiment; t++)
     {
         vector<int> v(v4);
@@ -176,7 +174,7 @@ int main(int argc, char *argv[])
     cout << "Heap Sort - v3: " << time_elapsed_heap_v3 << endl;
 	
 	
-	double time_elapsed_heap_v4 = 0.0;
+    double time_elapsed_heap_v4 = 0.0;
     for(unsigned int t = 0; t < num_experiment; t++)
     {
         vector<int> v(v4);
